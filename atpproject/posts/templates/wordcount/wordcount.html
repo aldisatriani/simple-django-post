@@ -1,0 +1,19 @@
+{% extends "posts/layout.html" %} {% block content %}
+
+<h3 class="center-align red accent-1"> {{ title }} </h3>
+<div class="container">
+    <div class="row">
+        <form class="col s12" action="/wordcount/" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" name="textbox" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Input a Text to Count</label>
+                    <button class="btn" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

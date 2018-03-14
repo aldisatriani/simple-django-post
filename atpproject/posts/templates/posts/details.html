@@ -1,0 +1,16 @@
+{% extends 'posts/layout.html' %}
+{% block content %}
+<h3 class="center-align red accent-1"> {{ post.title }} </h3>
+<div class="card">
+    <div class="card-content">
+        {{ post.body }}
+    </div>
+    <div class="card-action">
+        {{post.created_at}}
+        {% comment %} <br>
+        {{post.created_at|date:"Y-m-d"}} {% endcomment %}
+        
+    </div>
+</div>
+<a class="btn red lighten-1" href="{% url 'posts:index' %}"> Go Back</a>
+{% endblock %}

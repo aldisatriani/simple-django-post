@@ -1,0 +1,21 @@
+{% extends "posts/layout.html" %} {% block content %}
+<h3 class="center-align red accent-1"> {{ title }} </h3>
+<div class="card">
+    <div class="card-content">
+        {{ text }}
+    </div>
+    <h6 class="center-align red accent-1"> Counted Words </h6>
+    <div class="card-action">
+        {% for item, counter, percentage in items %}
+        <mark> {{ item }} </mark> : {{ counter }} occurence , percentage : {{ percentage }} %
+        <span></span>
+        <br> {% endfor %}
+        <style>
+            mark {
+                background-color: yellow;
+                color: black;
+            }
+        </style>
+    </div>
+</div>
+{% endblock content %}

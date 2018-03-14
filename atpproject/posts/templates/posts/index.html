@@ -1,0 +1,29 @@
+{% extends 'posts/layout.html' %} {% block content %}
+
+
+<h3 class="center-align red accent-1"> {{ title }} </h3>
+
+{% for post in posts%}
+<!-- <li class="collection-item"> <a href="/posts/details/{{post.id}}"> {{post.title}}</a></li>  this is hardcoded url-->
+<!-- <li class="collection-item"> <a href="{% url 'posts:details' post.id %} "> </a></li><br>  this is dinamic url -->
+<div class="col s12 m7">
+    <div class="card horizontal">
+        <div class="card-image">
+                {% if post.image %}
+                <img src= '{{ post.image.url }}' width="240" >
+                {% endif %}
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <h4 class="header">
+                    <a style="color: #ee6e72;" href="{% url 'posts:details' post.id %}">{{post.title}}</a>
+                </h4>
+                <p>{{ post.body|safe|truncatewords:"50"|linebreaks }}</p>
+            </div>
+            <div class="card-action">
+                Posted on : {{post.created_at}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} {% endblock %}
