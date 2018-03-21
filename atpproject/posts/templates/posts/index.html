@@ -3,7 +3,7 @@
 
 <h3 class="center-align red accent-1"> {{ title }} </h3>
 
-{% for post in posts%}
+{% for post in items%}
 <!-- <li class="collection-item"> <a href="/posts/details/{{post.id}}"> {{post.title}}</a></li>  this is hardcoded url-->
 <!-- <li class="collection-item"> <a href="{% url 'posts:details' post.id %} "> </a></li><br>  this is dinamic url -->
 <div class="col s12 m7">
@@ -26,4 +26,6 @@
         </div>
     </div>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %}
+{% include "posts/pagination.html" %}
+ {% endblock %}
